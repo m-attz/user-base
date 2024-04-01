@@ -39,16 +39,21 @@ I would recommend using the **testing.rb** file that I have provided.
 ## Example usage from the testing file
 
 ```
+# Require the module file and JSON library 
 require_relative '../lib/user_api.rb'
 require 'json'
 
+# Create a new user object with a cookie property
 user = User.new('Your cookie value')
 
 
+# Return the value from user.info() and store it 
 req = user.info(000000001)
 
+# Parse the string value which returns a hash
 parsed = JSON.parse(req)
 
+# Conditional logic to determine if the given user is banned or not
 if parsed['isBanned'] == false 
     puts sprintf('User: %s is not banned', parsed['name'])
 else
